@@ -1,0 +1,60 @@
+define([
+  "../../extend",
+  "../mExpression"
+], function (extend, mExpression) {
+
+
+  function Plus(_input, _pos, exp, operators) {
+    // super class
+    this.uber("ADDITION", 16, 2, _input, _pos);
+
+    // store the variables
+    this.pos++;
+    if (this.fillFirstArg(exp) != this.SUCCESS) {
+      this.fillFirstArgNumber(exp, 0, operators);
+    }
+    this.fillSecondArg(_input, operators);
+  }
+
+  extend.call(Plus, mExpression);
+
+  Plus.prototype.interpret = function (opts, callback) {
+
+    var self = this;
+
+    if (this.args.length !== 2) {
+      return callback("Operator Error :: ADDITION : missing argument.");
+    }
+    // evaluate the arguments if the arguments exist
+    this.args[0].interpret(opts, function (err, lMatrix) {
+      if (err) return callback("Operator Error :: ADDITION : argument error.");
+
+      self.args[1].interpret(opts, function (err, rMatrix) {
+        if (err) return callback("Operator Error :: ADDITION : argument error.");
+
+        // initialize the output matrix;
+        var outData = [];
+        // add the matrices
+        for (var i = 0; i < lMatrix.length; i++) {
+          // check that the matrices are the same size
+          if (lMatrix.length != rMatrix.length) {
+            return callback("Opperation Error : ADDITION : matrices have different numbers of rows.");
+          }
+          outData[i] = new Array(lMatrix[i].length);
+          for (var j = 0; j < lMatrix[i].length; j++) {
+            // check that the matrices are the same size
+            if (lMatrix[i].length != rMatrix[i].length) {
+              return callback("Opperation Error : ADDITION : matrices have different numbers of columns.");
+            }
+            outData[i][j] = lMatrix[i][j] + rMatrix[i][j];
+          }
+        }
+
+        callback(null, outData);
+      });
+    });
+  };
+
+  return Plus;
+
+});

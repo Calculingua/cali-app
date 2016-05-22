@@ -1,0 +1,14 @@
+{
+  "name": "jquery.parse",
+  "homepage": "https://github.com/mholt/jquery.parse",
+  "version": "0.6.1",
+  "_release": "0.6.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.6.1",
+    "commit": "925537c453b8f78ceb8e829473e58f1a94b97876"
+  },
+  "_source": "https://github.com/mholt/jquery.parse.git",
+  "_target": "0.6.1",
+  "_originalSource": "git+https://github.com/mholt/jquery.parse.git"
+}

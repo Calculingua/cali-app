@@ -1,0 +1,13 @@
+{
+  "name": "flot-axislabels",
+  "homepage": "https://github.com/markrcote/flot-axislabels",
+  "_release": "release-2.0.1",
+  "_resolution": {
+    "type": "tag",
+    "tag": "release-2.0.1",
+    "commit": "1d38e67fec97fa3a8855bc3955833531c66a53d5"
+  },
+  "_source": "https://github.com/markrcote/flot-axislabels.git",
+  "_target": "release-2.0.1",
+  "_originalSource": "git+https://github.com/markrcote/flot-axislabels.git"
+}

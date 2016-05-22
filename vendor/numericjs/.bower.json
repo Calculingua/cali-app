@@ -1,0 +1,14 @@
+{
+  "name": "numericjs",
+  "_cacheHeaders": {
+    "ETag": "\"419b0-22ae3-4d1511a9e9800\"",
+    "Last-Modified": "Thu, 20 Dec 2012 23:29:36 GMT",
+    "Content-Length": "142051",
+    "Content-Type": "text/javascript"
+  },
+  "_release": "e-tag:419b0-22a",
+  "main": "index.js",
+  "_source": "http://numericjs.com/lib/numeric-1.2.6.js",
+  "_target": "*",
+  "_originalSource": "http://numericjs.com/lib/numeric-1.2.6.js"
+}

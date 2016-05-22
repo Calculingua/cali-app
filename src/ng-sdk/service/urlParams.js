@@ -1,0 +1,29 @@
+define([
+], function () {
+	
+	function urlParams($window){
+		var out = {};
+		
+		out.getParams = function() {
+			var urlParams = {};
+			var match, pl = /\+/g, // Regex for replacing addition symbol with a
+			// space
+			search = /([^&=]+)=?([^&]*)/g, decode = function(s) {
+				return decodeURIComponent(s.replace(pl, " "));
+			}, query = $window.location.search.substring(1);
+
+			match = search.exec(query);
+			while (match){
+				urlParams[decode(match[1])] = decode(match[2]);
+				match = search.exec(query);
+			}
+
+			return urlParams;
+		};
+		
+		return out;
+	}
+
+  return ["$window", urlParams];
+
+});

@@ -1,0 +1,330 @@
+#sidebar #chat {
+	display: inline;
+}
+
+#sidebar #chat .buddyList {
+	float: left;
+	/* border: 1px solid; */
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	padding-left: 5px;
+	margin: 0px;
+}
+
+#sidebar #chat .buddyList ul {
+	list-style-type: none;
+}
+
+#sidebar #chat .buddyBox {
+	width: 100%;
+}
+
+#sidebar #chat #ownPresence { /* border: 1px solid; */
+	height: 2.5em;
+	padding: 10px 0 0 10px;
+	/* padding-left: 10px; */
+	width: 250px;
+	float: left;
+}
+
+#sidebar #chat .available {
+	padding: 10px;
+}
+
+#sidebar #chat .name {
+	padding: 10px;
+}
+
+#sidebar #chat .status {
+	padding: 10px;
+}
+
+#sidebar #chat .chatArea {
+	float: left;
+    left: 350px;
+    position: fixed;
+    top: 80px;
+}
+
+#sidebar #chat .chatHeaderBar {
+	background-color: #E0E0E0;
+	width: 289px;
+	border: 1px solid;
+	padding-left: 10px;
+}
+
+#sidebar #chat .chatWindow {
+	border: 1px solid;
+	float: left;
+	width: 300px;
+}
+
+#sidebar #chat .chatHistory {
+	overflow: auto;
+	width: 100%;
+	height: 300px;
+	background-color: white;
+}
+
+#sidebar #chat .chatHistEntry {
+	padding-bottom: 5px;
+}
+
+#sidebar #chat .chatFrom {
+	padding: 5px;
+}
+
+#sidebar #chat .chatHistEntryBody {
+	padding: 5px;
+}
+
+#sidebar #chat .chatInput {
+	width: 100%;
+	rows: 3;
+	resize: none;
+}
+
+#sidebar #chat .buddy {
+	cursor: pointer;
+	list-style: none;
+}
+
+#sidebar #chat #customIcon {
+	cursor: pointer;
+}
+
+#sidebar #chat .chatCloseButton {
+	float: right;
+	margin-top: -30px;
+	margin-right: -15px;
+	cursor: pointer;
+	color: #fff;
+	border: 1px solid #AEAEAE;
+	border-radius: 30px;
+	background: #605F61;
+	font-size: 31px;
+	/* font-weight: bold; */
+	display: inline-block;
+	line-height: 0px;
+	padding: 11px 3px;
+}
+
+#sidebar #chat .chatCloseButton:before {
+	content: "×";
+}
+
+#sidebar #chat #status {
+	position: relative;
+	left: 1em;
+	top: .5em;
+}
+
+#sidebar #chat #name {
+	position: relative;
+	left: 3em;
+	top: -1em;
+}
+
+#sidebar #chat #switcher {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	font-size: 1em;
+	position: relative;
+	left: 2.4em;
+	top: -1em;
+}
+
+#sidebar #chat .statusButtonClosed {
+	width: 200px;
+	margin: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #F8F8F8;
+	border: 1px solid #D8D8D8;
+	border-radius: 1em;
+	-moz-border-radius: 1em; /* Firefox 3.6 and earlier */
+	cursor: pointer;
+}
+
+#sidebar #chat .statusButtonOpen {
+	width: 200px;
+	margin: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #F8F8F8;
+	border-left: 1px solid #D8D8D8;
+	border-right: 1px solid #D8D8D8;
+	border-top: 1px solid #D8D8D8;
+	border-top-left-radius: 1em;
+	border-top-right-radius: 1em;
+	-moz-border-radius: 1em; /* Firefox 3.6 and earlier */
+	cursor: pointer;
+}
+
+#sidebar #chat .statusSwitcher {
+	list-style: none;
+	position: absolute;
+	/*--Important - Keeps subnav from affecting main navigation flow--*/
+	margin: 0;
+	padding: 10px;
+	display: none;
+	/* border: 1px solid #111; */
+	border-left: 1px solid #D8D8D8;
+	border-right: 1px solid #D8D8D8;
+	border-bottom: 1px solid #D8D8D8;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+	margin: 0;
+	background-color: #F8F8F8;
+	position: relative;
+	top: 0px;
+	width: 220px;
+	z-index: 100;
+}
+
+#sidebar #chat .statusSwitcherItem {
+	cursor: pointer;
+}
+
+#sidebar #chat .buddyName {
+	position: relative;
+	left: 1em;
+	top: -.25em;
+	text-style: bold;
+}
+
+#sidebar #chat .statusText {
+	font-size: 11px;
+	font-style: italic;
+	left: 1em;
+	padding-left: 10px;
+	position: relative;
+	top: -0.25em;
+}
+
+#sidebar #chat .availableText {
+	left: 1em;
+	position: relative;
+	top: -0.25em;
+}
+
+#sidebar #chat .statusCustom {
+	position: relative;
+	left: 1.25em;
+	top: -.25em;
+	size: 15;
+}
+
+#sidebar #chat #statusCustomButton {
+	position: relative;
+	left: 2em;
+	top: -.25em;
+	size: 15;
+}
+
+#sidebar #chat .arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid black;
+}
+
+#sidebar #chat .arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid black;
+	float: right;
+	position: relative;
+	top: .5em;
+}
+
+#sidebar #chat .arrow-right {
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid black;
+}
+
+#sidebar #chat .arrow-left {
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-right: 5px solid blacke;
+}
+
+#sidebar #chat .availableIconLarge {
+	width: 1em;
+	height: 1em;
+	border-radius: 1em;
+	-moz-border-radius: 1em; /* Firefox 3.6 and earlier */
+	background-color: green;
+	position: relative;
+	top: 0.75em;
+}
+
+#sidebar #chat .offlineIconLarge {
+	width: 1em;
+	height: 1em;
+	border-radius: 1em;
+	-moz-border-radius: 1em; /* Firefox 3.6 and earlier */
+	background-color: red;
+	position: relative;
+	top: 0.75em;
+}
+
+#sidebar #chat .awayIconLarge {
+	width: 1em;
+	height: 1em;
+	border-radius: 1em;
+	-moz-border-radius: 1em; /* Firefox 3.6 and earlier */
+	background-color: orange;
+	position: relative;
+	top: 0.75em;
+}
+
+#sidebar #chat .availableIconSmall {
+	position: relative;
+	top: .5em;
+	width: 0.5em;
+	height: 0.5em;
+	border-radius: 0.5em;
+	-moz-border-radius: 0.5em; /* Firefox 3.6 and earlier */
+	background-color: green;
+	width: 0.5em;
+	width: 0.5em;
+	width: 0.5em;
+}
+
+#sidebar #chat .offlineIconSmall {
+	position: relative;
+	top: 0.5em;
+	width: 0.5em;
+	height: 0.5em;
+	border-radius: 0.5em;
+	-moz-border-radius: 0.5em; /* Firefox 3.6 and earlier */
+	background-color: red;
+	width: 0.5em;
+	width: 0.5em;
+	width: 0.5em;
+}
+
+#sidebar #chat .awayIconSmall {
+	position: relative;
+	top: 0.5em;
+	width: 0.5em;
+	height: 0.5em;
+	border-radius: 0.5em;
+	-moz-border-radius: 0.5em; /* Firefox 3.6 and earlier */
+	background-color: orange;
+	width: 0.5em;
+	width: 0.5em;
+	width: 0.5em;
+}

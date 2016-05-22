@@ -1,0 +1,13 @@
+{
+  "name": "canvas2image",
+  "homepage": "https://github.com/mbochynski/canvas2image",
+  "_release": "e3b7939e81",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e3b7939e8118819e67495be244a9d86e9a0756ba"
+  },
+  "_source": "https://github.com/mbochynski/canvas2image.git",
+  "_target": "master",
+  "_originalSource": "git+https://github.com/mbochynski/canvas2image.git"
+}

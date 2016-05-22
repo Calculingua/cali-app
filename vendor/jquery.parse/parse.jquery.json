@@ -1,0 +1,36 @@
+{
+	"name": "parse",
+	"version": "0.6.1",
+	"title": "jQuery Parse Plugin",
+	"description": "Parses CSV (or any delimited text) into a usable data structure. This efficient and robust parser gracefully handles malformed input. The parsing function can work without jQuery.",
+	"keywords": [
+		"csv",
+		"parse",
+		"parsing",
+		"parser",
+		"delimited",
+		"text",
+		"data",
+		"comma",
+		"tab",
+		"pipe"
+	],
+	"author": {
+		"name": "Matthew Holt",
+		"email": "mholt@users.noreply.github.com",
+		"url": "http://mwholt.com"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://opensource.org/licenses/MIT"
+		}
+	],
+	"homepage":"https://github.com/mholt/jquery.parse",
+	"docs": "https://github.com/mholt/jquery.parse/blob/master/README.md",
+	"demo": "http://jsfiddle.net/mholt/nCaee",
+	"download": "https://raw.github.com/mholt/jquery.parse/master/jquery.parse.min.js",
+	"dependencies": {
+		"jquery": ">=1.5"
+	}
+}

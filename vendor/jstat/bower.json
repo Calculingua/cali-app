@@ -1,0 +1,20 @@
+{
+  "name": "jstat",
+  "version": "0.0.3",
+  "homepage": "https://github.com/billstron/jstat",
+  "authors": [
+    "Bill Burke <billstron@gmail.com>"
+  ],
+  "main": [
+	  "./dist/jstat.js",
+	  "./dist/jstat.min.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
