@@ -1,0 +1,255 @@
+@CHARSET "UTF-8";
+
+#sidebar #files {
+	display: inline;
+}
+
+#sidebar #files .tree {
+	position: absolute;
+	left: 0px;
+	top: 1.65em;
+	bottom: 30px;
+	overflow: hidden;
+	height: auto;
+	z-index: 1000;
+}
+
+#sidebar #files #message-window {
+	position: absolute;
+	left: 0px;
+	bottom: 30px;
+	height : auto;
+	z-index: 20000;
+	height: auto;
+	margin : 0px;
+	padding : 0px;
+}
+
+#sidebar #files #message-window span{
+	margin : 0 0 2px 5px;
+	float : left;
+	width: 260px;
+}
+
+#sidebar #files #message-window img {
+	display: none;
+	float: right;
+	margin-right: 7px;
+}
+
+#sidebar #files .header {
+	padding: 5px;
+	padding-left: 2em;
+	border: 1px solid #ccc;
+	height: 1.65em;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #999;
+	color: #FFF;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+}
+
+ul.dynatree-container{
+	padding : 0 0 0 3px;
+}
+
+.cali-modal {
+	position: fixed;
+	top: 0px;
+	left: 0;
+	right: 0;
+	bottom : 0px;
+	z-index: 100000;
+	padding: 10px;
+	background-color : rgba(99, 99, 99, .4);
+}
+
+.cali-modal .interface {
+	position : relative;
+	margin: 0 auto;
+/*	margin-top : 160px;*/
+	margin-top : 10% !important;
+	width: 100%;
+	min-height: 325px;
+	max-height: 300px !important;
+	max-width: 400px !important;
+	min-width: 300px;
+	border: 1px solid #787878;
+	border-radius: 4px;
+	background-color: #f1f1f1;
+	box-shadow: 4px 4px 10px #666;
+}
+
+.cali-modal .titlebar {
+	width: 100%;
+	height: 30px;
+	background-color : #999;
+/*	background-image: url(../img/combo-box.jpg);
+	background-repeat: repeat;
+*/	line-height : 30px;
+	border-radius: 4px 4px 0 0;
+}
+
+.cali-modal .titlebar .title{
+	padding : 0;
+	font-size: 1.1em;
+	color: #F0F0F0;
+	text-shadow: 1px 1px 0 #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	width : 100%;
+	text-align : center;
+}
+
+.cali-modal .titlebar input{
+	float: left;
+	width: 150px;
+	margin: 1px 5px 1px 5px;
+	font-size: 12px;
+}
+
+ .cali-modal .titlebar select {
+ 	float: left;
+ 	width: 150px;
+ 	margin: 4px 5px 1px 0px;
+}
+
+.cali-modal .titlebar ul {
+	border-left: 1px solid #787878;
+	/* padding-left : 10px; */
+}
+
+.cali-modal .titlebar ul,.cali-modal .titlebar li {
+	list-style: none;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	float: left;
+}
+
+.cali-modal .titlebar li {
+	height: 30px;
+	border-right: 1px solid #787878;
+	border-radius: 0;
+	margin: 0;
+	line-height: 30px;
+	text-align: center;
+	width: 80px;
+}
+
+.cali-modal .titlebar li a {
+	text-decoration: none;
+	font-size: 1.1em;
+	color: #F0F0F0;
+	text-shadow: 1px 1px 0 #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+.cali-modal .titlebar li:hover {
+	background-color: rgba(255, 192, 1, 1);
+}
+
+.cali-modal .titlebar li:active {
+	position: relative;
+	top: 1px;
+}
+
+.cali-modal .content {
+	overflow: auto;
+	width: 100%;
+	/*bottom: 0px;
+	position: absolute;
+	top: 30px;*/
+}
+
+.cali-modal .content .dialog-text{
+	padding : 1em;
+}
+
+.cali-modal .content button, .cali-modal .content input
+{
+	line-height: normal;
+	width : 120px;
+	height : 30px;
+	margin : .2em;
+	line-height : 30px;
+	padding : 0;
+	font-size: 1.1em;
+	color: #F0F0F0;
+	text-shadow: 1px 1px 0 #000000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.cali-modal .content button, .cali-modal .content input[type="button"],.cali-modal .content input[type="reset"], .cali-modal .content input[type="submit"] {
+	cursor: pointer;
+	float: left;
+	border-right: 1px solid #e19b00;
+	text-decoration: none;
+	background-image: url(../img/combo-box.jpg);
+	background-repeat: no-repeat;
+}
+
+.cali-modal .content button:hover,.cali-modal .content input[type="button"]:hover, .cali-modal .content input[type="reset"]:hover, .cali-modal .content input[type="submit"]:hover
+{
+	background: rgba(255, 192, 1, 1);
+}
+
+.cali-modal .content button:active, .cali-modal .content input[type="button"]:active, .cali-modal .content input[type="reset"]:active, .cali-modal .content input[type="submit"]:active
+{
+	position: relative;
+	top: 1px;
+}
+
+input[type="button"].success{
+	background: #287bbc !important;
+	border-color: #287bbc;
+	box-shadow: none !important;
+}
+
+input[type="button"].success:hover{
+	background: #2672ae !important;
+	border-color: #2672ae;
+	box-shadow: none !important;
+}
+
+input[type="button"].failure{
+	background: #C0462B !important;
+	border-color: #C0462B;
+	box-shadow: none !important;
+}
+
+input[type="button"].failure:hover{
+	background: #BE3D1D !important;
+	border-color: #BE3D1D;
+	box-shadow: none !important;
+}
+
+input[type="button"]:focus{
+	outline: none;
+}
+
+.cali-modal .bottom{
+	position: absolute;
+	bottom: 10px;
+}
+
+.cali-modal .bottom.right{
+	right: 10px;
+}
+
+#overlay-conn-button img:hover{
+	background-color : #aaaaaa;
+	border-radius : 4px;
+}
+
+#overlay-conn-button img:active{
+	position : relative;
+	left : 1px;
+	top : 1px;
+	background-color : #aaaaaa;
+	border-radius : 4px;
+}

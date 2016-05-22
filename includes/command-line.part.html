@@ -1,0 +1,4 @@
+<label id="wt-command-line" class="indicator"><i class="icon icon-bolt"></i></label>
+<input type="text" class="entry" placeholder="start by typing 'help'" 
+	ng-model="$parent.commandText" ng-enter="$parent.submit()" ng-key-up="$parent.up()" ng-key-down="$parent.down()" 
+	ng-disabled="busy" focus-me="$parent.focus" />

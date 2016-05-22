@@ -1,0 +1,28 @@
+{
+  "name": "jstat",
+  "homepage": "https://github.com/billstron/jstat",
+  "authors": [
+    "Bill Burke <billstron@gmail.com>"
+  ],
+  "main": [
+    "./dist/jstat.js",
+    "./dist/jstat.min.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "dc8d24cbd6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "dc8d24cbd6717349886cd5d65ee0bf34e010b3e1"
+  },
+  "_source": "https://github.com/billstron/jstat.git",
+  "_target": "master",
+  "_originalSource": "git+https://github.com/billstron/jstat.git"
+}

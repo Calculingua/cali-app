@@ -1,0 +1,102 @@
+<div class="sidebar-overlay" ng-show="busy">
+	<div class="top-floater"></div>
+	<div class="busy-icon">
+		<i class="icon-spinner icon-spin icon-2x"></i>
+	</div>
+</div>
+<div class="sidebar-overlay" id="conn-overlay" ng-show="notConnected">
+	<div class="top-floater"></div>
+	<div class="busy-icon">
+
+		<div>
+			<p>Click to Connect</p>
+			<p>
+				<a href="#" id="overlay-conn-button" ng-click="triggerLink()">
+					<img style="width : 100px;" src="/img/dropbox-logos_dropbox-vertical-blue.png"></img>
+				</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="sidebar-table sortable">
+	<div class="head" id="wt-files-table">
+		<div class="row">
+			<div title="Type" class="data-30 border-right shadowed-text-black center">T</div>
+			<div title="File Name" class="data-160 border-right shadowed-text-black">File Name</div>
+			<div title="Date" class="data-100 shadowed-text-black">Date</div>
+		</div>
+	</div>
+	<div class="body">
+		<div ng-repeat="(key, value) in $parent.files | fileFilter" 
+				ng-click="fileClick(key)" ng-dblclick='fileDblClick(key)' 
+				ng-class="value.class" class="row">
+			<div class="data-30 border-right center"><i 
+				ng-class="value.isFolder == true ? 'icon-folder-open' : 'icon-file'"></i></div>
+			<div class="data-160 border-right"><span ng-hide="value.rename"><% value.name %></span>
+				<input type="text" ng-model="value.newName" ng-show="value.rename" 
+					ng-enter="submitRename()" focus="value.rename">
+			</div>
+			<div class="data-100 center"><% value.modifiedAt | date : 'shortDate' %></div>
+		</div>
+	</div>
+</div>
+
+<div class="comboBox">
+	<div title="Up" class="combo-buttons text" id="file-up" ng-click="triggerUp()">
+		<i class="icon-arrow-up"></i>
+	</div>
+	<div title="New File" class="combo-buttons text" id="file-new" ng-click="triggerNewFile()">
+		<span class="icon-stack ">
+			<i class="icon-file"></i>
+			<i class="icon-plus-sign icon-dark" 
+				style="font-size: 60%; position: relative; top: 5px; left: 5px;"></i>
+		</span>
+	</div>
+	<div title="New Folder" class="combo-buttons text" id="folder-new" ng-click="triggerNewFolder()">
+		<span class="icon-stack ">
+			<i class="icon-folder-close"></i>
+			<i class="icon-plus-sign icon-dark" 
+				style="font-size: 60%; position: relative; top: 5px; left: 5px;"></i>
+		</span>
+	</div>
+	<div title="Open" class="combo-buttons text" id="file-open" ng-click="triggerOpen()">
+		<i class="icon-pencil"></i>
+	</div>
+	<div title="Rename" class="combo-buttons text" id="file-rename" ng-click="triggerRename()">
+		<i class="icon-font"></i>
+	</div>
+	<div title="Delete" class="combo-buttons text" id="file-delete" ng-click="triggerDelete()">
+		<i class="icon-trash"></i>
+	</div>
+	<div title="Unlink Dropbox" class="combo-buttons text border-left" style="float : right;" 
+		ng-click="triggerUnlink()">
+	  <i class="icon-unlink"></i>
+	</div>
+</div>
+
+<div id="connectDropboxInterface" class="cali-modal" ng-show="showLinkPopup">
+	<div class="interface">
+		<div class="titlebar">
+			<div class="title">Connect to Dropbox</div>
+		</div>
+
+		<div id="page" class="content">
+			<div class="dialog-text">
+				<div>
+					<img style="width : 300px; padding-left : 15px" 
+						src="/img/dropbox-logos_dropbox-logotype-blue.png"></img>
+					</div>
+				<div><p>Connecting with Dropbox allows you to save and load files from your dropbox.</p>
+					<p>Connect now.</p>
+				</div>
+				<div class="pull-right">
+					<input id="dropbox-connect-okay" type="button" 
+						value="Okay" ng-click="trigerLink()">
+					<input id="dropbox-connect-no" type="button" 
+						value="No Thanks" ng-click="noThanksLink()">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<div class="sidebar-table sortable">
+	<div class="head">
+		<div class="row">
+			<div title="Variable Type" class="data-30 border-right shadowed-text-black center">T</div>
+			<div title="Variable Name" class="data-160 border-right shadowed-text-black">Variable Name</div>
+			<div title="Variable Information" class="data-100 shadowed-text-black">Info</div>
+		</div>
+	</div>
+	<div class="body">
+		<div ng-repeat="(key, value) in $parent.variables" 
+				ng-click="variableClick(key)" ng-dblclick='variableDblClick(key)' 
+				ng-class="value.class" class="row" title="<%value.info%> <%value.typeName%>" >
+			<div class="data-30 border-right center">
+				<i ng-class="value.typeClass" class="icon"></i>
+			</div>
+			<div class="data-160 border-right"><span ng-hide="value.rename"><% key %></span>
+				<input type="text" ng-model="value.newName" ng-show="value.rename" 
+					ng-enter="submitRename()" focus="value.rename">
+			</div>
+			<div class="data-100 center"><% value.info %></div>
+		</div>
+	</div>
+</div>
+
+<div class="comboBox">
+	<div title="Edit" class="combo-buttons">
+		<i class="icon-pencil"></i>
+	</div>
+	<div title="Delete" class="combo-buttons" ng-click="deleteVariable()">
+		<i class="icon-trash"></i>
+	</div>
+</div>

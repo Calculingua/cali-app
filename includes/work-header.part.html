@@ -1,0 +1,28 @@
+<div class="work-header">
+  <div class="wrap">
+    <a class="logo" href="/"> <img src="/img/cali-logo/full-white.png">
+    </a>
+
+    <ul class="links">
+      <li><a href="/about.html">About</a></li>
+    </ul>
+
+    <ul class="links right" ng-show="loggedIn" ng-cloak class="ng-cloak">
+      <li title="Upgrade Account Type">
+        <a href="#" class="cali-button oval" ng-class="accountClass" ng-click="expiryModal.showModal()">
+          <% accountText || 'trial' %>
+        </a>
+      </li>
+      <li title="Account Preferences" id="account-prefs">
+        <a href="/account">
+          <i class="icon icon-beaker icon-large"></i>
+        </a>
+      </li>
+      <li title="Logout">
+        <a href="/app/logout">
+          <i class="icon icon-signout icon-large"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

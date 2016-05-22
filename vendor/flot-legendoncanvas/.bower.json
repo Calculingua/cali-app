@@ -1,0 +1,13 @@
+{
+  "name": "flot-legendoncanvas",
+  "homepage": "https://github.com/lukesampson/flot",
+  "_release": "7594c18b69",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7594c18b69d18e67db8489d1289ed3f66bf45649"
+  },
+  "_source": "https://github.com/lukesampson/flot.git",
+  "_target": "*",
+  "_originalSource": "git+https://github.com/lukesampson/flot.git"
+}

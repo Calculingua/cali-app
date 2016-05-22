@@ -1,0 +1,65 @@
+<div class="sidebar-table sortable">
+	<div class="head" id="wt-files-table">
+		<div class="row">
+			<div class="data-30 border-right shadowed-text-black center">T</div>
+			<div class="data-160 border-right shadowed-text-black">Notebook Name</div>
+			<div class="data-100 shadowed-text-black">Date</div>
+		</div>
+	</div>
+	<div class="body">
+		<div ng-repeat="(key, value) in noteSide.books" 
+				ng-click="noteSide.click(key)" ng-dblclick='noteSide.dblClick(key)' 
+				ng-class="value.class" class="row">
+			<div class="data-30 border-right center"><i 
+				ng-class="value.public == true ? 'icon-eye-open' : 'icon-eye-close'"></i></div>
+			<div class="data-160 border-right">
+				<span ng-hide="value.rename"><% value.title %></span>
+			</div>
+			<div class="data-100 center"><% value.creation_date | date : 'shortDate' %></div>
+		</div>
+	</div>
+</div>
+
+<div class="comboBox">
+	<div title="Add" class="combo-buttons text" id="notebook-new" ng-click="noteSide.new()">
+		<i class="icon-plus"></i>
+	</div>
+	<div title="Edit" class="combo-buttons text" id="notebook-edit" ng-click="noteSide.edit()">
+		<i class="icon-pencil"></i>
+	</div>
+	<div title="Delete" class="combo-buttons text" id="notebook-delete" ng-click="noteSide.remove()">
+		<i class="icon-minus"></i>
+	</div>
+</div>
+
+<div id="new-dialog" class="input" ng-show="noteSide.showView == 'new'" ng-cloak>
+	<div class="header">Create New Notebook</div>
+	<div class="input-title">Title</div>
+	<input id="title" type="text" class="" placeholder="Notebook Title" ng-model="noteSide.newTitle"></input>
+	<div class="input-title">Description</div>
+	<textarea id="description" placeholder="Insert description here..." ng-model="noteSide.newDescription"></textarea>
+	<input type="checkbox" id="public" ng-model="noteSide.newPublic"> Public <br>
+	<input id="cancel" type="button" value="Cancel" ng-click="noteSide.closeModal()">
+	<input id="submit" type="button" value="Submit" ng-click="noteSide.submitNew()">
+</div>
+
+<div id="edit-dialog" class="input" ng-show="noteSide.showView == 'edit'" ng-cloak>
+	<div class="header">Edit Notebook</div>
+	<div class="input-title">Title</div>
+	<div id="title" class="input-value-static align-center"><% noteSide.books[noteSide.selectedKey].title %></div>
+	<div class="input-title">Description</div>
+	<textarea id="description" ng-model="noteSide.books[noteSide.selectedKey].description"></textarea>
+	<input type="checkbox" id="public" ng-model="noteSide.books[noteSide.selectedKey].public"> Public <br>
+	<input id="cancel" type="button" class="" value="Cancel" ng-click="noteSide.closeModal()">
+	<input id="submit" type="button" class="" value="Submit" ng-click="noteSide.submitEdit()">
+</div>
+
+<div id="delete-dialog" class="input" ng-show="noteSide.showView == 'remove'" ng-cloak>
+	<div class="header">Confirm Deletion</div>
+	<div class="input-title">Title</div>
+	<div id="title" class="input-value-static align-center"><% noteSide.books[noteSide.selectedKey].title %></div>
+	<div class="input-title">Description</div>
+	<div id="description" class="input-value-static"><% noteSide.books[noteSide.selectedKey].description %></div>
+	<input id="cancel" type="button" value="Cancel" ng-click="noteSide.closeModal()">
+	<input id="submit" type="button" value="Delete" ng-click="noteSide.submitRemove()">
+</div>

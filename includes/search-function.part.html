@@ -1,0 +1,47 @@
+<div class="search-line">
+	<textarea id="wt-search-bar" class="entry" placeholder="search for commands"
+		ng-model="$parent.searchText" ng-enter="submit()" ng-focus="focus()" ng-blur="blur()" 
+		ng-change="textChange()"
+		ui-autocomplete="myOption"
+		focus-me="$parent.inFocus">
+	</textarea>
+	<!-- <a ng-click="execute(argumentsForm.$error.required)"
+		ng-class="execute-button <% argumentsForm.$error.required ? 'disabled' : ''%>">
+		<i class="icon icon-play icon-2x" ng-hide="!command"></i>
+	</a> -->
+	<i class="execute-button" ng-hide="command"></i>
+	<a ng-click="hide()" class="hide right" ng-show="showing">
+		<span class="icon-stack">
+		  <i class="icon-circle icon-stack-base"></i>
+		  <i class="icon-chevron-down icon-light"></i>
+		</span>
+	</a>
+	<a ng-click="focus()" class="hide right" ng-hide="showing">
+		<span class="icon-stack">
+		  <i class="icon-circle icon-stack-base"></i>
+		  <i class="icon-chevron-up icon-light"></i>
+		</span>
+	</a>
+	<form id="wt-search-results" ng-hide="!command" class="specific" name="argumentsForm">
+        <div class="inputs">
+            <h3>Help Text</h3>
+            <div ng-bind-html="command.html" class="help-text"> 
+			</div>
+        </div>
+<!-- 		<div class="inputs">
+			<h3>Inputs:</h3>
+			<div ng-repeat="(key, value) in command.inputs" class="field">
+				<label><% value.name %> : <% key + 1 %></label>
+				<input type="text" ng-value="value.name" ng-model="value.input" ng-required="value.required"></input>
+			</div>
+		</div>
+		<div class="inputs">
+			<h3>Outputs:</h3>
+			<div ng-repeat="(key, value) in command.outputs" class="field">
+				<label><% value.name %> : <% key + 1 %></label>
+				<input type="text" ng-value="value.name" ng-model="value.input"></input>
+			</div>
+		</div>
+ -->	</form>
+	<!-- <div ng-hide="!command" class="status"><% commandText()%></div> -->
+</div>

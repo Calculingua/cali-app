@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" lang="en" xml:lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Calculingua</title>
+
+  <link href="vendor/normalize.css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="vendor/angular/angular-csp.css" rel="stylesheet" type="text/css">
+  <link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="vendor/jquery-ui/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+  <link href="vendor/hopscotch/dist/css/hopscotch.css" rel="stylesheet">
+
+  <link href='//fonts.googleapis.com/css?family=Sintony&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+  <link href="css/sidebar-communications.css" rel="stylesheet" type="text/css">
+  <link href="css/sidebar-variables.css" rel="stylesheet" type="text/css">
+  <link href="css/sidebar-files.css" rel="stylesheet" type="text/css">
+  <link href="css/sidebar-notebooks.css" rel="stylesheet" type="text/css">
+  <link href="css/editor.css" rel="stylesheet" type="text/css">
+  <link href="css/proof-interface.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/account.css" rel="stylesheet" type="text/css">
+  <link href="css/work.css" rel="stylesheet" type="text/css">
+
+  <meta name="viewport" content="width=device-width" />
+
+  <style>
+    .gridStyle {
+      border: 1px solid rgb(212, 212, 212);
+      width: 400px;
+      height: 300px;
+    }
+
+    div.hopscotch-bubble .hopscotch-nav-button {
+      margin-bottom: 12px !important;
+    }
+  </style>
+
+</head>
+
+<body ng-controller="Main">
+
+  <ng-include src="'includes/work-header.part.html'" ng-controller="header"></ng-include>
+
+  <div id="foreground">
+
+    <div id="topPane"></div>
+    <div id="leftPane">
+
+      <div id="leftInterface" ng-controller="LeftInterface">
+        <div id="leftInterface-nav">
+          <ul>
+            <li title="Variable Editor" id="nav-variable" ng-class="views.variable.class" ng-click="select('variable')"></li>
+            <li title="File Browser" id="nav-files" ng-class="views.files.class" ng-click="select('files')"></li>
+            <li title="Notebook Editor" id="nav-notes" ng-class="views.notes.class" ng-click="select('notes')"></li>
+          </ul>
+        </div>
+
+        <div id="sidebar">
+
+          <div id="files" class="pane" ng-show="views.files.selected">
+            <ng-include src="'includes/files-sidebar.part.html'" ng-controller="FileSidebar"></ng-include>
+          </div>
+
+          <div id="notes" class="pane" ng-show="views.notes.selected">
+            <ng-include src="'includes/notebook-sidebar.part.html'" ng-controller="NotebookSidebar as noteSide"></ng-include>
+          </div>
+
+          <div id="variable" ng-show="views.variable.selected" class="pane" ng-controller="VariableSidebar">
+            <ng-include src="'includes/variable-sidebar.part.html'"></ng-include>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="rightPane" ng-controller="RightInterface">
+      <div id="rightInterface" style="bottom: <% bottomHeight %>px">
+        <div class="control-bar">
+          <ul>
+            <li title="History Window" ng-class="icons.history == true ? 'selected' : ''">
+              <a ng-click="switch('history')">
+                <i class="icon icon-2x icon-bar-chart"></i>
+              </a>
+            </li>
+            <li title="File Editor Window" id="wt-right-editor-button" ng-class="icons.editor == true ? 'selected' : ''">
+              <a ng-click="switch('editor')">
+                <i class="icon icon-2x icon-code"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="editor-container" ng-show="icons.editor" ng-controller="Editor" ng-cloak>
+          <div class="toolbar">
+            <ul id="wt-editor-controls">
+              <li title="Create a new file."><a id="script-new" ng-click="addNewFile()">new</a></li>
+              <li title="Execute the current file."><a id="script-run" ng-click="run()">run</a></li>
+              <li title="Generate a proof-view of a notebook page."><a id="script-proof" ng-click="proof()">proof</a></li>
+              <li class="sync-icons sync-no-click" ng-show="changed">
+                <a href="#"><i class="icon-cloud-upload icon-light"></i><span>Auto Saving in 10s</a>
+              </li>
+              <li class="sync-icons sync-no-click" ng-hide="changed || syncing">
+                <a href="#"><i class="icon-check icon-light"></i><span>Changes Saved</span></a>
+              </li>
+              <li class="sync-icons sync-no-click" ng-show="syncing">
+                <a href="#"><i class="icon-refresh icon-spin icon-light"></i><span>Auto Saving Files</span></a>
+              </li>
+            </ul>
+          </div>
+          <div id="script-tabs">
+            <ul>
+            </ul>
+          </div>
+        </div>
+
+
+        <div id="history_container" ng-show="icons.history" ng-controller="History" ng-focus="focus()" ng-click="focus()">
+          <div class="toolbar">
+            <ul>
+              <li><a ng-click="save()">save</a></li>
+              <li><a ng-click="print()">print</a></li>
+            </ul>
+          </div>
+          <div class="history-combined">
+            <div id="historyInterface">
+              <div id="tutorial" class="history_comment text_result">
+                <h1 id="wt-start-here">Start HERE</h1>
+                <p>Calculingua is a web application for mathematical analysis and design. Therefore the dominant interface elements have been developed to allow rapid analysis. The major elements are:</p>
+                <ul>
+                  <li>Command Entry Bar -- Down there at the bottom. The Command Entry Bar is where you type your math commands.</li>
+                  <li>Sidebar -- Over on the left. It shows various data items based on what you pick from the menu bar on the left. It defaults to a variable viewer that allows you to see what variables are in your workspace.</li>
+                  <li>History Window -- That's were you're reading this. It's where you see the results of your math show up.</li>
+                  <li>Top Bar -- Right above here. It has icons for things like modifying your account and logging out.</li>
+                </ul>
+
+                <h2>Math!</h2>
+                <p>Calculingua is designed for math, so let's see how to do it:
+                </p>
+                <ol>
+                  <li>Let's say we want to add two numbers -- 2 and 5. To do that, type the following code in the the Command Entry Bar and hit enter:
+                    <br> <code> 2 + 5 </code>
+                    <br> You should see see that command be pushed to the History Window, followed by the answer. Note that without assigning this math to a variable, Calculingua assumes that you want the variable "ans" to equal this. Therefore, the variable
+                    "ans" now has the value 7.
+                  </li>
+                  <li>Okay, so what you really wanted was for the variable "my_variable" to equal 7. To achieve that, type the following and hit enter:
+                    <br> <code>my_variable = 5 + 2</code>
+                    <li>Then let's say you want to do something with your new viable... Type the following and hit enter to set "my_other_variable" to 716:
+                      <br> <code>my_other_variable
+											= 100 * my_variable + (20 - 4)</code>
+                    </li>
+                    <li>This is just the most basic example. Calculingua is really much more than a simple five function calculator -- it's designed to perform matrix mathematics. We'll not get into that here, but to learn about the rest of the functions
+                      of Calculingua, type the following followed by enter:
+                      <br> <code>help</code>
+                    </li>
+                </ol>
+              </div>
+              <hr id="wt-history-window">
+            </div>
+            <div class="command-line" ng-controller="CommandLine">
+              <ng-include src="'includes/command-line.part.html'"></ng-include>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-interface" style="height: <% bottomHeight %>px" ng-controller="SearchFunction">
+        <ng-include src="'includes/search-function.part.html'">
+      </div>
+
+    </div>
+
+  </div>
+
+  <div ng-controller="Proof" ng-show="active" id="proofInterface" ng-cloak>
+    <div class="interface">
+      <div class="toolbar">
+        <input id="proof-title" type="text" placeholder="Page Title" ng-model="pageTitle">
+        <select id="proof-notebook" type="select" ng-model="selectedNotebook" ng-options="book.title for book in notebooks"></select>
+        <ul>
+          <li><a ng-click="publish()" href="#">publish</a></li>
+          <li><a ng-click="cancel()" href="#">cancel</a></li>
+        </ul>
+      </div>
+      <div id="page"></div>
+    </div>
+    <div class="cali-modal" ng-show="publishedModal">
+      <div class="interface">
+        <div class="titlebar">
+          <div class="title">Publish Complete</div>
+        </div>
+
+        <div class="content">
+          <div class="dialog-text">
+            <div>
+              <p>Your notebook page is now published at:</p>
+              <p>
+                <a ng-href="<% pubLink %>" target="_blank">
+                  <% pubLink %>
+                </a>
+              </p>
+            </div>
+            <div class="right bottom">
+              <input id="dropbox-connect-okay" type="button" value="Okay" ng-click="close()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cali-modal" ng-show="errorModal">
+      <div class="interface">
+        <div class="titlebar">
+          <div class="title">Publish Failed</div>
+        </div>
+
+        <div class="content">
+          <div class="dialog-text">
+            <div>
+              <p>
+                <% errorMessage || 'That title is already taken.  Try entering a new title.' %>
+              </p>
+            </div>
+            <div class="right bottom">
+              <input id="dropbox-connect-okay" type="button" value="Okay" ng-click="closeModal()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/canvas2image/canvas2image.js"></script>
+  <script data-main="/src/ng-work/main" type="text/javascript" src="vendor/requirejs/require.js"></script>
+
+</body>
+
+</html>
