@@ -39,6 +39,15 @@
     }
   </style>
 
+  <script>
+    // force https
+    var here = window.location.href.split('://');
+    console.log(here[0], here[1]);
+    if(here[1].indexOf('localhost') == -1 && here[0] == 'http'){
+      window.location = 'https://' + here[1];
+    }
+  </script>
+
 </head>
 
 <body ng-controller="Main">
